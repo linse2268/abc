@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Letter Generator</title>
+    <style>
+      body {
+        background-color: rgba(0, 0, 0, 0.9);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+      #content {
+        width: 60vw;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2vw;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5vw;
+      }
+      #outputContainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-size: 15vw;
+        font-weight: 900;
+        margin: 0;
+        position: fixed;
+      }
+      #cover {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      @keyframes uncover {
+        0% {
+          backdrop-filter: blur(50px);
+        }
+        100% {
+          backdrop-filter: blur(0px);
+        }
+      }
+      button {
+        height: 15vh;
+        width: 60vw;
+        border-radius: 3vw;
+        border: 3px solid white;
+        background-color: blue;
+        font-size: 2.5vw;
+        font-weight: 900;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div id="outputContainer">
+        <h1 id="h1">A</h1>
+        <div id="cover"></div>
+      </div>
+      <button onclick="letter()">zufälligen Buchstaben generieren</button>
+    </div>
+
+    <script>
+      const h1 = document.getElementById("h1");
+      const cover = document.getElementById("cover");
+      const abc = [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+      ];
+
+      function letter() {
+        cover.style.animation = "none";
+        cover.offsetHeight; 
+        cover.style.animation = "uncover 2s ease-out 1";
+
+        let randomInt = Math.floor(Math.random() * 26);
+        h1.innerText = abc[randomInt];
+        console.log(abc[randomInt]);
+      }
+    </script>
+  </body>
+</html>
